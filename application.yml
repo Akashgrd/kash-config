@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+#    active: native      #for search-location
+    active: git          #for git
+  cloud:
+    config:
+      server:
+#        native:
+#          search-location: "classpath:/config"
+        git:
+          uri: "https://github.com/Akashgrd/kash-config.git"
+          default-label: master
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+server:
+  port: 8071
+
